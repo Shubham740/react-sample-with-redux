@@ -7,9 +7,12 @@ import ChangePassword from './screens/changePassword/ChangePassword';
 import UserVerificationScreen from './screens/userVerification/UserVerificationScreen';
 import OnboardingScreen from './screens/onboarding/OnboardingScreen';
 import OnboardingStepsScreen from './screens/onboardingSteps/OnboardingStepsScreen';
+import HocSample from './hoc/HocSample';
+import PureCompEx from './screens/pureComponent/PureCompEx';
+import MemoEx from './screens/memoEx/MemoEx';
 
 function App() {
-  return (
+return (
       <div>
           <Switch>
               <Route exact path='/' component={LoginScreen} />
@@ -18,7 +21,11 @@ function App() {
               <Route path='/changePassword' component={ChangePassword} />
               <Route path='/userVerification' component={UserVerificationScreen} />
               <Route path='/onboarding' component={OnboardingScreen} />
+              <Route path='/hoc' component={HocSample} />
               <Route path='/onboardingSteps' component={OnboardingStepsScreen} />
+              <Route path='/pc' component={PureCompEx} />
+              <Route path='/memoEx' component={MemoEx} />
+
          
           </Switch>
     </div>

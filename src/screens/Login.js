@@ -1,24 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { styles } from './LoginStyle'
 import { useHistory } from 'react-router-dom';
 
 import IMAGES from '../assets/Images';
-import {setEmailId,setPassword, setLoginData} from '../redux/actions/LoginAction'
+import { setEmailId, setPassword, setLoginData } from '../redux/actions/LoginAction'
 
-const Login = () => {
+const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
     const history = useHistory();
     const dispatch = useDispatch()
     const reducerEmailId = useSelector(state => state.LoginReducer.email)
-    
+
     console.log('loginReducer =>>>>', reducerEmailId)
+
+    useEffect(() => {
+        console.log("Component did mount");
+    }, []);
+
+    useEffect(() => {
+        console.log("Component did update");
+    });
+
+    useEffect((reducerEmailId) => {
+        console.log("Component did update", reducerEmailId);
+    }, [reducerEmailId]);
+
+    useEffect(() => {
+        return () => {
+            console.log("Component will unmount ");
+        }
+    }, []);
 
     return (
         <div style={styles.container}>
@@ -67,9 +85,11 @@ const Login = () => {
                 </Button>
                 <Button
                     onClick={(event) => {
-                        history.push({pathname:'/signup',state:{
-                            email:'shubham@gmail.com'
-                        }})
+                        history.push({
+                            pathname: '/signup', state: {
+                                email: 'shubham@gmail.com'
+                            }
+                        })
                     }}
                     uppercase={"false"}
                     style={styles.buttonSignUp}

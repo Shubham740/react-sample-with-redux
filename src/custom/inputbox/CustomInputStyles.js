@@ -4,6 +4,7 @@ export const styles = {
     marginTop: '15px',
     marginLeft: '20px',
     marginRight: '40px',
+   
   },
   multilineColor:{
     color:'red'

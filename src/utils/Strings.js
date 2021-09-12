@@ -32,7 +32,8 @@ const STRINGS={
     UPLOAD_VIDEO:'Upload Video',
     PASTE_YOUTUBE_LINK :'Paste Youtube Link',
     PLEASE_ENTER_YOUTUBE_URL:'Please enter youtube url',
-    SUBMIT:'Submit'
+    SUBMIT:'Submit',
+    SEND_FEEDBACK:'Send Feedback'
 }
 
 export default STRINGS;
