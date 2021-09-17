@@ -6,6 +6,10 @@ import CustomLogo from '../../custom/header/CustomLogo';
 import STRINGS from '../../utils/Strings';
 import CustomButton from '../../custom/button/CustomButton';
 import FeedbackDialog from '../../dialogs/FeedbackDialog';
+import { setEmailId, setPassword, setLoginData } from '../../redux/actions/LoginAction'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProduct } from '../../redux/actions/ProductAction';
+
 
 const SignUpScreen = (props) => {
 
@@ -16,6 +20,11 @@ const SignUpScreen = (props) => {
     const [jobCategory, setJobCategory] = useState('');
     const [yourExpLevel, setYourExpLevel] = useState('');
     const [feedbackDialog, setFeedbackDialog] = useState(false);
+
+    const dispatch = useDispatch()
+    const productList = useSelector(state => state.ProductReducer.productList)
+
+    console.log('productList=>>>', productList);
 
     return (
         <div style={styles.container}>
@@ -48,6 +57,9 @@ const SignUpScreen = (props) => {
                 />
                 <div style={styles.buttonView}>
                     <CustomButton title={STRINGS.SIGNUP} isSecondary={true}
+                    onClick={()=>{
+                        dispatch(fetchProduct())
+                    }}
                     />
                     {feedbackDialog == true &&
                         <FeedbackDialog
