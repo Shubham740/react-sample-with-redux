@@ -9,21 +9,21 @@ export const fetchProduct = () => {
     return (dispatch) => {
 
         ApiHelper.fetchGet(GET_PRODUCT_LIST, {
-            method:'Get',
-            headers:getHeaders()
-        }).then(responseData=>{
-                dispatch(setProduct(responseData.response.docs));
+            method: 'Get',
+            headers: getHeaders()
+        }).then(responseData => {
+            dispatch(setProduct(responseData.response.docs));
         })
     }
 }
 
-function setProduct(product){
-    console.log("product=>>>",product)
-    if(product){
-        return{
-            type:SET_PRODUCT,
-            payload:product
+function setProduct(product) {
+    console.log("product=>>>", product)
+    if (product) {
+        return {
+            type: SET_PRODUCT,
+            payload: product
         }
     }
-   
-} 
+
+}
