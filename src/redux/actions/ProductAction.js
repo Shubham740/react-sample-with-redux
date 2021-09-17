@@ -7,7 +7,6 @@ import { SET_PRODUCT } from "../types";
 export const fetchProduct = () => {
 
     return (dispatch) => {
-
         ApiHelper.fetchGet(GET_PRODUCT_LIST, {
             method: 'Get',
             headers: getHeaders()
